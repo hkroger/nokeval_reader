@@ -1,0 +1,13 @@
+serial:
+  device: "/dev/tty.usbserial-NA140098"
+  baud: 9600
+  bits: 8
+  stopbits: 1
+  flowcontrol: none
+database:
+  type: mysql
+  host: localhost
+  name: temperatures
+  table_name: measurements
+  username: root
+  password: ""

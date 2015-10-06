@@ -1,0 +1,10 @@
+*.log
+.hg
+.hgignore
+web
+*.yaml
+target
+.DS_Store
+.idea
+*.sqlite3
+schaibaa/

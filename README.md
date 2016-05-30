@@ -4,16 +4,12 @@ This is a utility which reads the measurements of a wireless thermometer and sto
 It can be run as a daemon and an example launchd configuration file is included.
 
 ## How to use
-### Prepare the DB
-*create_table.sql* contains SQL to generate a compatible table. You can run it like this:
-	
-	mysql -uroot some_db_name < create_table.sql
-	
 ### Install requirements
 
-Ruby 1.9 or newer is required. I recommend installing RVM from <https://rvm.io/>. After installing RVM and for example ruby 2.0, install serial port gem:
+Ruby 1.9 or newer is required. I recommend installing RVM from <https://rvm.io/>. After installing RVM and for example ruby 2.0, install needed gems:
 
-	gem install serialport
+        gem install bundler
+	bundle install
 
 ### Check the configuration
 Check the configuration and update as needed:
@@ -21,23 +17,6 @@ Check the configuration and update as needed:
 	cp config.yaml.example config.yaml
 	vim config.yaml
 
-The configuration looks like this:
-
-	serial:
-  	  device: "/dev/tty.usbserial-NA140098"
-  	  baud: 9600
-  	  bits: 8
-  	  stopbits: 1
-  	  flowcontrol: none
-	database:
-	  type: mysql
-  	  host: localhost
-  	  name: temperatures
-      table_name: measurements
-  	  username: root
-  	  password: ""
-      buffer_file: "/opt/nokeval-reader/buffer.sqlite3"
-  	  
 Example of rest storage configuration with fail over urls:
 
     serial:
@@ -57,7 +36,6 @@ Example of rest storage configuration with fail over urls:
 It is important to update at least the serial device to point to the actual device that you have.
 
 ### Run
-
 	./reader.rb
 
 ### Run as daemon in OS X

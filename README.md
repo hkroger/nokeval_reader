@@ -8,7 +8,7 @@ It can be run as a daemon and an example launchd configuration file is included.
 
 Ruby 1.9 or newer is required. I recommend installing RVM from <https://rvm.io/>. After installing RVM and for example ruby 2.0, install needed gems:
 
-        gem install bundler
+    gem install bundler
 	bundle install
 
 ### Check the configuration

@@ -1,0 +1,14 @@
+[Unit]
+Description=Nokeval Reader
+After=network.target
+
+[Service]
+ExecStart=/bin/bash -c '/usr/bin/ruby /opt/nokeval_reader/reader.rb >> /var/log/nokeval_reader.log 2>&1'
+KillMode=process
+Restart=on-failure
+RestartSec=30s
+User=reader
+Group=dialout
+
+[Install]
+WantedBy=multi-user.target

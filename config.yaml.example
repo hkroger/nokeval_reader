@@ -1,13 +1,13 @@
 serial:
-  device: "/dev/tty.usbserial-NA140098"
+  device: "/dev/ttyUSB0"
   baud: 9600
   bits: 8
   stopbits: 1
-  flowcontrol: none
 database:
-  type: mysql
-  host: localhost
-  name: temperatures
-  table_name: measurements
-  username: root
-  password: ""
+  type: rest_storage
+  url:
+    - https://hkroger.info/thermometer/api/measurements
+    - http://hkroger.info/thermometer/api/measurements
+  key: <key here>
+  client_id: <client id here>
+buffer_file: "/var/lib/nokeval-reader/measurements.sqlite3"

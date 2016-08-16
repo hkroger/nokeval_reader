@@ -1,0 +1,9 @@
+/var/log/nokeval_reader.log {
+   missingok
+   size 10M
+   copytruncate
+   create 0660 reader reader
+   dateext
+   rotate 4
+   compress
+}

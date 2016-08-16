@@ -1,0 +1,20 @@
+#!/bin/sh
+
+groupadd reader
+useradd -r reader -c "nokeval_reader" -g reader
+
+mkdir -p /var/lib/nokeval_reader/
+chown -R reader:reader /var/lib/nokeval_reader
+touch /var/log/nokeval_reader.log
+chown reader:reader /var/log/nokeval_reader.log
+usermod reader -a -G dialout
+
+cd /opt/nokeval_reader/
+gem install bundler --no-ri --no-rdoc
+bundle install
+
+usermod reader -a -G dialout
+
+systemctl daemon-reload
+systemctl enable nokeval_reader.service
+systemctl start nokeval_reader.service

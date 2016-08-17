@@ -37,6 +37,31 @@ It is important to update at least the serial device to point to the actual devi
 
 ### Run
 	./reader.rb
+	
+### Easy install for Debian/Raspbian 8
+
+Open apt-get file in editor:
+
+    vim /etc/apt/sources.list.d/temperaturinator.list
+
+Add:
+
+    deb http://koti.kapsi.fi/hkroger/debs/ ./
+
+Save & run:
+
+	apt-get update
+	apt-get install nokeval-reader
+
+Edit configs:
+
+	cd /opt/nokeval_reader
+	cp config.yaml.example config.yaml
+	vim config.yaml
+	
+Add key where it says `<key here>` and client id where it says `<client id here>`.
+
+And reboot.
 
 ### Run as daemon in OS X
 

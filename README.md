@@ -61,7 +61,9 @@ Edit configs:
 	
 Add key where it says `<key here>` and client id where it says `<client id here>`.
 
-And reboot.
+And start the service
+
+	systemctl start nokeval_reader
 
 ### Run as daemon in OS X
 

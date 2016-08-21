@@ -3,6 +3,6 @@ Priority: optional
 Section: misc
 Maintainer: Hannu Kroger <hkroger@gmail.com>
 Architecture: all
-Version: 1.0.0
-Depends: gcc, ruby2.1, ruby2.1-dev, libruby2.1, rubygems, sqlite, libsqlite-dev
+Version: 1.0.1
+Depends: gcc, ruby2.1, ruby2.1-dev, libruby2.1, rubygems, sqlite, libsqlite-dev, libsqlite3-dev
 Description: Nokeval temperature reader

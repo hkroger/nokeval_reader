@@ -17,4 +17,3 @@ usermod reader -a -G dialout
 
 systemctl daemon-reload
 systemctl enable nokeval_reader.service
-systemctl start nokeval_reader.service

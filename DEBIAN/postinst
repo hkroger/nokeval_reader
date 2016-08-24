@@ -1,5 +1,8 @@
 #!/bin/sh
 
+update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby2.1 200
+update-alternatives --install /usr/bin/gem gem /usr/bin/gem2.1 200 
+
 groupadd reader
 useradd -r reader -c "nokeval_reader" -g reader
 
@@ -7,6 +10,7 @@ mkdir -p /var/lib/nokeval_reader/
 chown -R reader:reader /var/lib/nokeval_reader
 touch /var/log/nokeval_reader.log
 chown reader:reader /var/log/nokeval_reader.log
+chown root:root /etc/logrotate.d/nokeval_reader
 usermod reader -a -G dialout
 
 cd /opt/nokeval_reader/

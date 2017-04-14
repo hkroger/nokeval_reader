@@ -30,11 +30,12 @@ class RestStorageDao < TemperatureDAO
         @logger.debug "Errno::ECONNREFUSED: #{e.message}"
       rescue RestClient::ExceptionWithResponse => e
         @logger.debug "Exception: #{e.message}"
+        @logger.debug "Response: #{e.response}"
         if e.http_code == 403
           @logger.debug "Got 403, we are not authorized. Let's skip this."
           return true
         end
-        return false if e.http_code >= 400 and e.http_code < 500
+        return false if !e.http_code.nil? and e.http_code >= 400 and e.http_code < 500
       rescue RestClient::Exception => e
         @logger.debug "Exception: #{e.message}"
       end

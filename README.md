@@ -1,5 +1,5 @@
 # Nokeval FTR970B Reader
-This is a utility which reads the measurements of a wireless thermometer and stores them in a MySQL table. This works with Nokeval FTR970B and compatible devices.
+This is a utility which reads the measurements of a wireless thermometer Measurinator.com service. This works with Nokeval FTR970B and compatible devices.
 
 It can be run as a daemon and an example launchd configuration file is included.
 
@@ -26,9 +26,6 @@ Example of rest storage configuration with fail over urls:
 	    stopbits: 1
     database:
 	    type: rest_storage
-	    url:
-	      - http://my.storage.server.com/thermometer/api/measurements
-	      - http://my.storage.server.com:8080/thermometer/api/measurements
 	    key: <some uuid>
 	    client_id: <another uuid>
     buffer_file: "/opt/nokeval-reader/buffer.sqlite3"

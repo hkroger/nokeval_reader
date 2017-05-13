@@ -5,9 +5,6 @@ serial:
   stopbits: 1
 database:
   type: rest_storage
-  url:
-    - https://hkroger.info/thermometer/api/measurements
-    - http://hkroger.info/thermometer/api/measurements
   key: <key here>
   client_id: <client id here>
 buffer_file: "/var/lib/nokeval_reader/measurements.sqlite3"

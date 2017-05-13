@@ -6,8 +6,8 @@ class RestStorageDao < TemperatureDAO
   def initialize(database_config, logger)
     @config = database_config
     @logger = logger
-    urls = @config['url']
-    @config['url'] = [urls] unless urls.is_a? Array 
+    urls = @config['override_url'] || "http://api.measurinator.com/measurements"
+    @config['override_url'] = [urls] unless urls.is_a? Array 
   end
 
   def store(reading)
@@ -21,7 +21,7 @@ class RestStorageDao < TemperatureDAO
       'version' => 2
     }
     content['checksum'] = generate_checksum(content, @config['key'])
-    @config['url'].each do |url|
+    @config['override_url'].each do |url|
       begin 
         RestClient.post(url, content.to_json, :content_type => :json, :accept => :json)
         @logger.debug "Measurement stored in #{url} successfully"

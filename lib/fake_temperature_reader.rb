@@ -8,6 +8,6 @@ class FakeTemperatureReader
   end
 
   def next
-    TemperatureReading.new(1, 20+(rand*10), 4.5+rand, -70+(rand*10), Time.now.to_i) if rand > 0.8
+    TemperatureReading.new(1, 20+(rand*10), 4.5+rand, -70+(rand*10), Time.now.to_i) if rand > 0.5
   end
 end

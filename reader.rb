@@ -17,7 +17,7 @@ buffer = MeasurementBuffer.new(config['buffer_file'], logger)
 
 puts "Starting reading at #{Time.now}"
 begin
-  if config['fake_mode'] == true
+  if config['fake_reader_mode'] == true
     temp_reader = FakeTemperatureReader.new
   else
     temp_reader = TemperatureReader.new(config["serial"], logger)
@@ -26,7 +26,13 @@ begin
   begin
     begin 
       reading = temp_reader.next
-      buffer.store(reading) if reading and reading.valid?
+      if reading and reading.valid?
+        if config['fake_storage_mode'] == true
+          buffer.store(reading) 
+        else 
+          puts "fake storage mode: " + reading.inspect
+        end
+      end
     end while reading
     buffer.flush(dao) 
     sleep 5

@@ -3,15 +3,73 @@ This is a utility which reads the measurements of a wireless thermometer Measuri
 
 It can be run as a daemon and an example launchd configuration file is included.
 
-## How to use
-### Install requirements
+## How to use	
+### Easy install for Debian/Raspbian 9 (Stretch)
+
+Open apt-get file in editor:
+
+    vim /etc/apt/sources.list.d/temperaturinator.list
+
+Add:
+
+    deb http://koti.kapsi.fi/hkroger/debs/stretch ./
+
+Save & run:
+
+	apt-get update
+	apt-get install nokeval-reader
+
+Edit configs:
+
+	cd /opt/nokeval_reader
+	cp config.yaml.example config.yaml
+	vim config.yaml
+	
+Add key where it says `<key here>` and client id where it says `<client id here>`.
+
+And start the service
+
+	systemctl start nokeval_reader
+
+### Easy install for Debian/Raspbian 8 (Jessie)
+
+**Jessie is not supported anymore. Please migrate to stretch!**
+
+Open apt-get file in editor:
+
+    vim /etc/apt/sources.list.d/temperaturinator.list
+
+Add:
+
+    deb http://koti.kapsi.fi/hkroger/debs/jessie ./
+
+Save & run:
+
+	apt-get update
+	apt-get install nokeval-reader
+
+Edit configs:
+
+	cd /opt/nokeval_reader
+	cp config.yaml.example config.yaml
+	vim config.yaml
+	
+Add key where it says `<key here>` and client id where it says `<client id here>`.
+
+And start the service
+
+	systemctl start nokeval_reader
+	
+### Manual installation
+
+#### Install requirements
 
 Ruby 1.9 or newer is required. I recommend installing RVM from <https://rvm.io/>. After installing RVM and for example ruby 2.0, install needed gems:
 
     gem install bundler
 	bundle install
 
-### Check the configuration
+#### Check the configuration
 Check the configuration and update as needed:
 
 	cp config.yaml.example config.yaml
@@ -32,35 +90,9 @@ Example of rest storage configuration with fail over urls:
   
 It is important to update at least the serial device to point to the actual device that you have.
 
-### Run
+#### Run
 	./reader.rb
 	
-### Easy install for Debian/Raspbian 8
-
-Open apt-get file in editor:
-
-    vim /etc/apt/sources.list.d/temperaturinator.list
-
-Add:
-
-    deb http://koti.kapsi.fi/hkroger/debs/ ./
-
-Save & run:
-
-	apt-get update
-	apt-get install nokeval-reader
-
-Edit configs:
-
-	cd /opt/nokeval_reader
-	cp config.yaml.example config.yaml
-	vim config.yaml
-	
-Add key where it says `<key here>` and client id where it says `<client id here>`.
-
-And start the service
-
-	systemctl start nokeval_reader
 
 ### Run as daemon in OS X
 

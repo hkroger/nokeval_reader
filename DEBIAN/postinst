@@ -1,7 +1,7 @@
 #!/bin/sh
 
-update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby2.1 200
-update-alternatives --install /usr/bin/gem gem /usr/bin/gem2.1 200 
+update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby2.3 200
+update-alternatives --install /usr/bin/gem gem /usr/bin/gem2.3 200 
 
 groupadd reader
 useradd -r reader -c "nokeval_reader" -g reader

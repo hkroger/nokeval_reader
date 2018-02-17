@@ -28,13 +28,15 @@ begin
       reading = temp_reader.next
       if reading and reading.valid?
         if config['fake_storage_mode'] == true
-          buffer.store(reading) 
-        else 
           puts "fake storage mode: " + reading.inspect
+        else 
+          buffer.store(reading) 
         end
       end
     end while reading
-    buffer.flush(dao) 
+    if config['fake_storage_mode'] != true
+      buffer.flush(dao) 
+    end
     sleep 5
   end while true
 rescue RuntimeError, SocketError, SystemCallError => e

@@ -3,7 +3,7 @@ GEM
   specs:
     mime-types (2.3)
     netrc (0.7.7)
-    oj (2.12.1)
+    oj (3.0.11)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
@@ -15,8 +15,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  oj
+  oj (~> 3.0.0)
   rest-client
   serialport
   sqlite3
   uuidtools
+
+BUNDLED WITH
+   1.15.4

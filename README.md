@@ -16,8 +16,7 @@ Add:
 
 Save & run:
 
-	apt-get update
-	apt-get install nokeval-reader
+   apt update --allow-insecure-repositories	apt-get install nokeval-reader
 
 Edit configs:
 

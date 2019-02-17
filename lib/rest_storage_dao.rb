@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'rest-client'
 require 'digest/sha1'
+require 'json'
 
 class RestStorageDao < TemperatureDAO
   def initialize(database_config, logger)

@@ -8,15 +8,16 @@ It can be run as a daemon and an example launchd configuration file is included.
 
 Open apt-get file in editor:
 
-    vim /etc/apt/sources.list.d/temperaturinator.list
+    vim /etc/apt/sources.list.d/measurinator.list
 
 Add:
 
-    deb http://koti.kapsi.fi/hkroger/debs/stretch ./
+    deb [trusted=yes] http://koti.kapsi.fi/hkroger/debs/stretch ./
 
 Save & run:
 
-   apt update --allow-insecure-repositories	apt-get install nokeval-reader
+	apt update
+	apt-get install nokeval-reader
 
 Edit configs:
 
@@ -65,7 +66,7 @@ And start the service
 
 Ruby 1.9 or newer is required. I recommend installing RVM from <https://rvm.io/>. After installing RVM and for example ruby 2.0, install needed gems:
 
-    gem install bundler
+	gem install bundler
 	bundle install
 
 #### Check the configuration

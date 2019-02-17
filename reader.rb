@@ -42,5 +42,11 @@ begin
 rescue RuntimeError, SocketError, SystemCallError => e
   logger.warn "Error during processing: #{$!}"
   logger.debug "Backtrace:\n\t#{e.backtrace.join("\n\t")}"
-  temp_reader.close
+  if temp_reader.nil?
+    logger.warn "Reader device could not be initialized. Waiting for 5 seconds."
+    sleep 5
+  else
+    temp_reader.close
+    temp_reader = nil
+  end
 end while true
